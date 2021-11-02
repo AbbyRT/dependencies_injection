@@ -2,7 +2,7 @@ package org.generation.dependencies_injection.service;
 
 import org.generation.dependencies_injection.model.Student;
 
-import java.util.List;
+import java.util.Map;
 
 public interface StudentService
 {
@@ -10,7 +10,7 @@ public interface StudentService
 
     void delete( Student student );
 
-    List<Student> all();
+    Map<String, Student> all();
 
     Student findById( String id );
 

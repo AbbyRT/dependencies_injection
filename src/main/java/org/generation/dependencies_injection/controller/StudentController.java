@@ -15,14 +15,24 @@ public class StudentController
 
     public StudentController( @Autowired StudentService studentService )
     {
+
         this.studentService = studentService;
+        Student student1 = new Student("1", 1, "Jake", "Perro", 1);
+        studentService.add(student1);
+        Student student2 = new Student("2", 1, "Finn", "Humano", 1);
+        studentService.add(student2);
+        Student student3 = new Student("3", 1, "Marceline", "Vampira", 1);
+        studentService.add(student3);
+
+
     }
 
     @GetMapping( "/student/{id}" )
     Student findById( @PathVariable( "id" ) String id )
     {
-        int studentId = Integer.parseInt(id) - 1;
-        return studentService.findById( String.valueOf(studentId) );
+      //  int studentId = Integer.parseInt(id) - 1;
+       // return studentService.findById( String.valueOf(studentId) ); //esto funciona para array list
+        return studentService.findById( id );
     }
 
 }

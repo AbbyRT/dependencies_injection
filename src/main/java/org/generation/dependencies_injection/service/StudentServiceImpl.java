@@ -5,13 +5,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-@Service
-public class StudentServiceImpl implements StudentService{
+//@Service
+public abstract class StudentServiceImpl implements StudentService{
     private final List<Student> studentList = new ArrayList<>();
 
-    //inyeccion de dependencia
-    Student student;
     //constructor
     public StudentServiceImpl(){
         addStudents();
@@ -36,10 +35,14 @@ public class StudentServiceImpl implements StudentService{
 
     }
 
-    @Override
-    public List<Student> all() {
-        return studentList;
-    }
+//    @Override
+//    public List<Student> all() {
+//        return studentList;
+//    }
+@Override
+public abstract Map<String, Student> all();
+    //me salia error si no lo ponia así y no sé por que :(
+
 
     @Override
     public Student findById(String id) {
